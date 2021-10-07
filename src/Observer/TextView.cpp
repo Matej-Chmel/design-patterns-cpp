@@ -3,7 +3,7 @@
 
 namespace mch {
 	void TextView::print() {
-		std::cout << this->label << ": " << this->content() << '\n';
+		std::cout << this->label << ": " << this->contentRef() << '\n';
 	}
 
 	TextView::iterator TextView::begin() {
@@ -14,8 +14,16 @@ namespace mch {
 		return this->_content.end();
 	}
 
-	const std::string& TextView::content() {
+	std::string TextView::contentCopy() {
 		return this->_content;
+	}
+
+	const std::string& TextView::contentRef() {
+		return this->_content;
+	}
+
+	bool TextView::empty() {
+		return this->contentRef().empty();
 	}
 
 	void TextView::notify() {

@@ -7,28 +7,26 @@ namespace mch {
 	}
 
 	void Transformer::addRndChar() {
-		this->subject->setContent(this->content() + this->f(this->r.next()));
+		this->subject->setContent(this->contentRef() + this->f(this->r.next()));
 	}
 
 	void Transformer::eraseRndChar() {
-		auto& ref = this->content();
-
-		if(ref.empty())
+		if(this->subject->empty())
 			return;
 
-		std::string copy(ref);
+		auto copy = this->subject->contentCopy();
 		copy.erase(Random<size_t>(0, copy.size()).next(), 1);
 		this->subject->setContent(copy);
 	}
 
 	Transformer::Transformer(const std::string& label, TextView* const s, TransformerFun f) :
-		Observer(s), TextView(label, s->content()), f(f), r('a', 'z') {
+		Observer(s), TextView(label, s->contentRef()), f(f), r('a', 'z') {
 
 		this->subject->attach(this);
 	}
 
 	void Transformer::update() {
-		std::string copy(this->subject->content());
+		auto copy = this->subject->contentCopy();
 		std::transform(copy.begin(), copy.end(), copy.begin(), this->f);
 		this->setContent(copy);
 	}

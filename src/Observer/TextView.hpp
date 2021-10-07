@@ -16,7 +16,9 @@ namespace mch {
 		iterator end();
 
 	public:
-		const std::string& content();
+		std::string contentCopy();
+		const std::string& contentRef();
+		bool empty();
 		void notify() override;
 		void setContent(const std::string& content);
 		TextView(const std::string& label, const std::string& content);
