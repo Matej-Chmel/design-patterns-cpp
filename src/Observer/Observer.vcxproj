@@ -143,19 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LowerCaseStyler.cpp" />
+    <ClCompile Include="Transformer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RandomText.cpp" />
-    <ClCompile Include="Subject.cpp" />
-    <ClCompile Include="UpperCaseStyler.cpp" />
+    <ClCompile Include="RandomTextView.cpp" />
+    <ClCompile Include="TextView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LowerCaseStyler.hpp" />
+    <ClInclude Include="Transformer.hpp" />
     <ClInclude Include="Observer.hpp" />
-    <ClInclude Include="RandomText.hpp" />
+    <ClInclude Include="Random.hpp" />
+    <ClInclude Include="RandomTextView.hpp" />
     <ClInclude Include="Subject.hpp" />
     <ClInclude Include="refresh.hpp" />
-    <ClInclude Include="UpperCaseStyler.hpp" />
+    <ClInclude Include="TextView.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

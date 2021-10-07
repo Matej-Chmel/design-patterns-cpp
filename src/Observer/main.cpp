@@ -1,35 +1,33 @@
-#include "LowerCaseStyler.hpp"
-#include "RandomText.hpp"
+#include "RandomTextView.hpp"
 #include "refresh.hpp"
-#include "UpperCaseStyler.hpp"
+#include "Transformer.hpp"
 using namespace std::chrono_literals;
 
-constexpr size_t ADDED_CHARS = 50;
-constexpr auto DURATION = 25ms;
-constexpr size_t TEXT_MIN_LEN = 30;
+constexpr size_t ADDED_LEN = 50;
+constexpr size_t MIN_LEN = 30;
+constexpr auto REFRESH_RATE = 25ms;
 
 int main() {
-	mch::RandomText text(TEXT_MIN_LEN);
-	mch::LowerCaseStyler lowerStyler(&text);
-	mch::UpperCaseStyler upperStyler(&text);
+	mch::RandomTextView src("SourceStr", MIN_LEN);
+	mch::Transformer lowerTr("LowerCase", &src, tolower), upperTr("UpperCase", &src, toupper);
 
 	mch::refresh([&]() {
 		static size_t i = 0;
 		static auto nowUpper = true;
 
-		if(i >= ADDED_CHARS) {
+		if(i >= ADDED_LEN) {
 			i = 0;
 			nowUpper = !nowUpper;
-			text.randomize();
+			src.randomize();
 			return;
 		}
 		i++;
 
 		if(nowUpper)
-			upperStyler.addRndChar();
+			upperTr.addRndChar();
 		else
-			lowerStyler.eraseChar();
-	}, DURATION);
+			lowerTr.eraseRndChar();
+	}, REFRESH_RATE);
 
 	return 0;
 }

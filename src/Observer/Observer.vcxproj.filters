@@ -18,16 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Subject.cpp">
+    <ClCompile Include="RandomTextView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RandomText.cpp">
+    <ClCompile Include="TextView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UpperCaseStyler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LowerCaseStyler.cpp">
+    <ClCompile Include="Transformer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,13 +38,16 @@
     <ClInclude Include="refresh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RandomText.hpp">
+    <ClInclude Include="RandomTextView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UpperCaseStyler.hpp">
+    <ClInclude Include="TextView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LowerCaseStyler.hpp">
+    <ClInclude Include="Random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
