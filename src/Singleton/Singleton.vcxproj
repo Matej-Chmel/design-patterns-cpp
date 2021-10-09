@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Console.hpp" />
     <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="SyncSingleton.hpp" />
     <ClInclude Include="Unique.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -11,11 +11,6 @@ namespace mch {
 		this->_running = false;
 	}
 
-	Console& Console::instance() {
-		std::unique_lock _(mutex);
-		return Singleton::instance();
-	}
-
 	void Console::print(const std::string& label, const std::string& s) {
 		std::cout << label << ": " << s << '\n';
 	}
@@ -35,10 +30,5 @@ namespace mch {
 	void Console::setColor(const WORD color) {
 		this->color = color;
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-	}
-
-	void Console::transaction(const std::function<void(Console&)> f) {
-		std::unique_lock _(mutex);
-		f(*this);
 	}
 }
