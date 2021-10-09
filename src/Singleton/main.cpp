@@ -1,6 +1,5 @@
 #include <chrono>
 #include <iostream>
-#include <vector>
 #include "Console.hpp"
 namespace chrono = std::chrono;
 using namespace std::chrono_literals;
@@ -39,10 +38,6 @@ int main() {
 	for(size_t i = 0; i < len; i++)
 		workers.emplace_back(worker, i, ATTRS[i]);
 
-	mch::Console::instance().waitForEnter();
-
-	for(auto& w : workers)
-		w.join();
-
+	mch::Console::instance().runUntilEnter(workers);
 	return 0;
 }
