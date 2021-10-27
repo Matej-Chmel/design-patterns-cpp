@@ -13,5 +13,7 @@ namespace mch {
 	};
 
 	template<class S>
-	Observer<S>::Observer(S* const s) : subject(s) {}
+	Observer<S>::Observer(S* const s) : subject(s) {
+		this->subject->attach(this);
+	}
 }

@@ -20,10 +20,7 @@ namespace mch {
 	}
 
 	Transformer::Transformer(const std::string& label, TextView* const s, TransformerFun f) :
-		Observer(s), TextView(label, s->contentRef()), f(f), r('a', 'z') {
-
-		this->subject->attach(this);
-	}
+		Observer(s), TextView(label, s->contentRef()), f(f), r('a', 'z') {}
 
 	void Transformer::update() {
 		auto copy = this->subject->contentCopy();
